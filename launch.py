@@ -35,7 +35,7 @@ def predict(features: np.ndarray,model:Any,logger) -> Dict[str, str]:
     try:
         logger.info("model prediction")
         audio_model,lbelencoder = model
-        predicted_label=model.predict(features)
+        predicted_label=audio_model.predict(features)
         logger.info("prediction successful")
         classes_x=np.argmax(predicted_label,axis=1)
         prediction_class = lbelencoder.inverse_transform(classes_x)
